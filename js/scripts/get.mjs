@@ -7,10 +7,6 @@ export class GetItems extends Validate {
         const INPUT_ELEMENTS = document.querySelectorAll("form input");
         INPUT_ELEMENTS.forEach(input => INPUT_DATA.push(input.value));
 
-        try{
-            this.isFilled(INPUT_DATA);
-        } catch (er) {
-            console.log(er.message);
-        }
+        this.isFilled(INPUT_DATA);
     }
 }

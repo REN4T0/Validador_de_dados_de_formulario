@@ -10,36 +10,42 @@
 </head>
 
 <body>
-    <form action="POST">
-        <fieldset>
+    <form action="#" method="POST">
+        <fieldset class="todos">
             <legend>Nome</legend>
             <input type="text" name="name" id="name">
         </fieldset>
+        <p class="alert todos"></p>
 
-        <fieldset>
+        <fieldset class="todos">
             <legend>Sobrenome</legend>
             <input type="text" name="lastname" id="lastname">
         </fieldset>
+        <p class="alert todos"></p>
 
-        <fieldset>
+        <fieldset class="todos CPF">
             <legend>CPF</legend>
             <input type="text" name="cpf" id="cpf">
         </fieldset>
+        <p class="alert todos CPF"></p>
 
-        <fieldset>
+        <fieldset class="todos usuário">
             <legend>Nome de usuário</legend>
             <input type="text" name="username" id="username">
         </fieldset>
+        <p class="alert todos usuário"></p>
 
-        <fieldset>
+        <fieldset class="todos senha senhas">
             <legend>Senha</legend>
             <input type="password" name="pass" id="pass">
         </fieldset>
+        <p class="alert todos senha senhas"></p>
 
-        <fieldset>
+        <fieldset class="todos senhas">
             <legend>Repetir senha</legend>
             <input type="password" name="repeat_pass" id="repeat_pass">
         </fieldset>
+        <p class="alert todos senhas"></p>
 
         <button type="submit" class="send">Cadastrar</button>
     </form>

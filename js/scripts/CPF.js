@@ -1,4 +1,5 @@
 export class CPF {
+    
     isValid() {
         let trueCPF = this.cpf.slice(0, -2);
 
