@@ -1,33 +1,33 @@
 import { GetItems } from "./scripts/get.mjs";
 
-function resetForm(){
+function resetForm() {
     let fieldsetElements = document.querySelectorAll(`fieldset`);
     let paragraphElements = document.querySelectorAll(`p`)
 
     fieldsetElements.forEach(fieldset => {
         paragraphElements.forEach(paragraph => {
             fieldset.style.borderColor = "#dadada";
-            paragraph.innerText = '';   
+            paragraph.innerText = '';
         });
     });
 }
 
-function showIncorrectInput(errorMessage){
+function showIncorrectInput(errorMessage) {
     let keyWords = ['todos', 'CPF', 'usuário', 'senha', 'senhas'];
     let chosenWord = new String();
 
-    for(let word of keyWords){
+    for (let word of keyWords) {
         let regex = new RegExp(word, "g");
-        if(errorMessage.match(regex)) chosenWord = word;
+        if (errorMessage.match(regex)) chosenWord = word;
     }
-    
+
     let fieldsetElements = document.querySelectorAll(`fieldset.${chosenWord}`);
     let paragraphElements = document.querySelectorAll(`p.${chosenWord}`);
 
     fieldsetElements.forEach(fieldset => {
         paragraphElements.forEach(paragraph => {
             fieldset.style.borderColor = "red";
-            paragraph.innerText = errorMessage;   
+            paragraph.innerText = errorMessage;
         });
     });
 }

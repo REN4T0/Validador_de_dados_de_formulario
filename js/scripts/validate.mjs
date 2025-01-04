@@ -27,13 +27,13 @@ export class Validate extends CPF {
         }
     }
 
-    passwordIsValid(){
-        if(this.password.length < 6 || this.password.length > 12) this.showError("Pass Length");
-        if(this.password !== this.confirmPass) this.showError("Diferent Pass");
+    passwordIsValid() {
+        if (this.password.length < 6 || this.password.length > 12) this.showError("Pass Length");
+        if (this.password !== this.confirmPass) this.showError("Diferent Pass");
     }
 
-    usernameIsValid(){
-        if(this.username.length < 3 || this.username.length > 12) this.showError("Username Length");
+    usernameIsValid() {
+        if (this.username.length < 3 || this.username.length > 12) this.showError("Username Length");
         this.username.match(/[\W]/g) ? this.showError("Special Char") : this.passwordIsValid();
     }
 
