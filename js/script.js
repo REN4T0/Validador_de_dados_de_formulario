@@ -47,7 +47,7 @@ document.addEventListener("click", e => {
         try {
             FORM_DATA.catchFormData();
             Post.save(FORM_DATA);
-            Read.showData();            
+            Read.showData();
         } catch (er) {
             showIncorrectInput(er.message)
         }

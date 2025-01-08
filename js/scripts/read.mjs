@@ -7,7 +7,7 @@ export class Read {
         STORAGE.forEach(register => {
             let row = document.createElement("tr");
 
-            for(let key in register){
+            for (let key in register) {
                 let tableData = document.createElement("td");
                 tableData.innerText = register[`${key}`];
                 row.appendChild(tableData);

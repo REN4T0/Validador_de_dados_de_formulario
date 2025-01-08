@@ -53,14 +53,20 @@ button {
     transition: filter 0.2s linear;
 }
 
-table, thead, th, tbody, tr, td {
+table,
+thead,
+th,
+tbody,
+tr,
+td {
     border: 1px solid #000;
     border-collapse: collapse;
     text-align: center;
     padding: 10px;
 }
 
-form, table {
+form,
+table {
     position: relative;
     top: 10vh;
 }
