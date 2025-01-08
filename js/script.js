@@ -1,4 +1,6 @@
 import { GetItems } from "./scripts/get.mjs";
+import { Post } from "./scripts/post.mjs";
+import { Read } from "./scripts/read.mjs";
 
 function resetForm() {
     let fieldsetElements = document.querySelectorAll(`fieldset`);
@@ -44,10 +46,13 @@ document.addEventListener("click", e => {
 
         try {
             FORM_DATA.catchFormData();
-            console.log(FORM_DATA);
+            Post.save(FORM_DATA);
+            Read.showData();            
         } catch (er) {
             showIncorrectInput(er.message)
         }
 
     }
-})
+});
+
+Read.showData();

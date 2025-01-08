@@ -5,6 +5,15 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    gap: 10vw;
+    flex-wrap: wrap;
+}
+
 fieldset {
     padding: 2px 10px;
     width: fit-content;
@@ -33,10 +42,6 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 button {
@@ -46,6 +51,18 @@ button {
     background-color: orange;
     cursor: pointer;
     transition: filter 0.2s linear;
+}
+
+table, thead, th, tbody, tr, td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+}
+
+form, table {
+    position: relative;
+    top: 10vh;
 }
 
 button:hover {
