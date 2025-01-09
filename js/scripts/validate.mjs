@@ -6,6 +6,8 @@ export class Validate extends CPF {
         switch (type) {
             case 'Empty':
                 throw new Error("Preencha todos os dados no formulário.");
+            case 'CPF Already Exist':
+                throw new Error("O CPF já existe em outro cadastro.");
             case 'CPF Length':
                 throw new Error("O CPF deve possuir 11 dígitos.");
             case 'Innumerable CPF':
@@ -14,6 +16,8 @@ export class Validate extends CPF {
                 throw new Error("Números sequênciais detectados - CPF inválido.");
             case 'Invalid CPF':
                 throw new Error("CPF inválido.");
+            case 'Username Already Exist':
+                throw new Error("O nome de usuário já foi usado.");
             case 'Username Length':
                 throw new Error("O nome de usuário deve ter entre 3 a 12 caracteres.");
             case 'Special Char':
@@ -33,12 +37,18 @@ export class Validate extends CPF {
     }
 
     usernameIsValid() {
+        const STORAGE = JSON.parse(localStorage.getItem("persons")) || [];
+
+        STORAGE.forEach(register => {
+            if(register.username === this.username) this.showError("Username Already Exist");
+        });
+        
         if (this.username.length < 3 || this.username.length > 12) this.showError("Username Length");
         this.username.match(/[\W]/g) ? this.showError("Special Char") : this.passwordIsValid();
     }
 
     isFilled(data) {
         data.forEach(value => value.replaceAll(' ', '').length === 0 ? this.showError('Empty') : [this.name, this.lastname, this.cpf, this.username, this.password, this.confirmPass] = data);
-        this.lengthIsCorrect() ? this.usernameIsValid() : this.showError("Invalid CPF");
+        this.cpfExist() ? this.usernameIsValid() : this.showError("Invalid CPF");
     }
 }

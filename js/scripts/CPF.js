@@ -31,4 +31,14 @@ export class CPF {
             this.showError('CPF Length');
         } else return this.isOnlyNumber();
     }
+
+    cpfExist() {
+        const STORAGE = JSON.parse(localStorage.getItem("persons")) || [];
+
+        STORAGE.forEach(register => {
+            if(register.cpf === this.cpf) this.showError("CPF Already Exist");
+        });
+
+        return this.lengthIsCorrect();
+    }
 }

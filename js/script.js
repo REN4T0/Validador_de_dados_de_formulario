@@ -2,6 +2,11 @@ import { GetItems } from "./scripts/get.mjs";
 import { Post } from "./scripts/post.mjs";
 import { Read } from "./scripts/read.mjs";
 
+function cleanForm(){
+    const INPUT_ELEMENT = document.querySelectorAll("form input");
+    INPUT_ELEMENT.forEach(input => input.value = '');
+}
+
 function resetForm() {
     let fieldsetElements = document.querySelectorAll(`fieldset`);
     let paragraphElements = document.querySelectorAll(`p`)
@@ -48,10 +53,10 @@ document.addEventListener("click", e => {
             FORM_DATA.catchFormData();
             Post.save(FORM_DATA);
             Read.showData();
+            cleanForm();
         } catch (er) {
             showIncorrectInput(er.message)
         }
-
     }
 });
 
